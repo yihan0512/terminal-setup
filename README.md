@@ -28,8 +28,12 @@
 - dense-analysis/ale 
 - christoomey/vim-tmux-navigator (also requires tmux side setup)
 - iamcco/markdown-preview.nvim
+- mhinz/vim-startify
+- tiagofumo/vim-nerdtree-syntax-highlight
+- ryanoasis/vim-devicons (need nerd font to work)
 ### others
 - ripgrep/silver searcher
+- 
 
 # To do
 - split configuration into multiple files

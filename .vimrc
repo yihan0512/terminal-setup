@@ -5,8 +5,21 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'mhinz/vim-startify'
+
 " nerdtree
 Plug 'preservim/nerdtree'
+
+
+
+" vim-session
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-session'
+
+
+" nerdtree highlighting
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
 " ALE
 Plug 'dense-analysis/ale'
@@ -22,9 +35,6 @@ Plug 'junegunn/fzf.vim'
 " jedi-vim
 " Plug 'davidhalter/jedi-vim'
 
-" vim-session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 
 " tmux vim navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -35,9 +45,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " markdown-preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+
 " Initialize plugin system
 call plug#end()
-
 
     
 " jedi-vim settings
@@ -250,3 +260,16 @@ function! g:EchoUrl(url)
     :echo a:url
 endfunction
 let g:mkdp_browserfunc = 'g:EchoUrl'
+
+""" vim-devicons
+" set guifont=FiraCode\ Nerd\ Font:h11
+
+" startify
+" workaround of nerdtree startup issue
+let g:startify_session_before_save = [
+            \ 'silent! NERDTreeClose'
+            \ ]
+autocmd SessionLoadpost * NERDTree
+" let startify read nerdtree bookmarks
+let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+
