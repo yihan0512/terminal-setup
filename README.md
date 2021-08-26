@@ -2,9 +2,9 @@
 
 ## Installation
 ### vim
-- install `nvim
+- install `nvim`
 - `alias vim='nvim'`
-- make nvim use `.vimrc`: in vim `:help nvim-from-vim`
+- make `nvim` use `.vimrc`: `cp ./init.vim ~/.config/nvim/`
 - install vim-plug
 - copy configuration files to the home dir
 - `PlugInstall` to install all plugins`
@@ -23,7 +23,8 @@
 - junegunn/fzf.vim
 - numirias/semshi (`pip3 install pynvim --upgrade`)
 - xolox/vim-session
-- neoclide/coco.nvim
+- neoclide/coco.nvim (requires nodejs ?= 12.12, recommand control node version
+  with nvm: `omf install nvm`)
 - coc-python (`CocInstall coc-python`)
 - dense-analysis/ale 
 - christoomey/vim-tmux-navigator (also requires tmux side setup)
