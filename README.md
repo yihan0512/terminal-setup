@@ -11,7 +11,7 @@
 - (optional) install bat and set BAT_THEME=OneHalfLight in shell config file (for fzf ripprep)
 - (optional) install ripgrep/silver searcher
 - (optional) install markdown-preview.nvim (which requires node, yarn and typescript
-  installation)
+  installation) (also need to modify the ip)
 ### tmux
 - install TPM
 - install configure vim-tmux-navigator on both vim and tmux sides
