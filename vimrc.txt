@@ -5,6 +5,13 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
+" nerdtree
+Plug 'preservim/nerdtree'
+
+" ALE
+Plug 'dense-analysis/ale'
+
+
 " numirias/semshi
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 

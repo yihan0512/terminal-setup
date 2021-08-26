@@ -17,16 +17,19 @@
 - install configure vim-tmux-navigator on both vim and tmux sides
 
 ## Plugins used
-- nerdtree
-- vim-plug
+### vim-plug
+- preservim/nerdtree
+- tpope/vim-commentary
 - junegunn/fzf.vim
-- numirias/semshi (syntax highlight) (`pip3 install pynvim --upgrade`)
+- numirias/semshi (`pip3 install pynvim --upgrade`)
 - xolox/vim-session
 - neoclide/coco.nvim
-- coc-python (CocInstall coc-python)
-- ALE
-- christoomey/vim-tmux-navigator
-- ripgrep/silver searcher
+- coc-python (`CocInstall coc-python`)
+- dense-analysis/ale 
+- christoomey/vim-tmux-navigator (also requires tmux side setup)
 - iamcco/markdown-preview.nvim
-- tpope/vim-commentary
+### others
+- ripgrep/silver searcher
 
+# To do
+- split configuration into multiple files
