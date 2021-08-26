@@ -25,6 +25,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " coco.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" markdown-preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Initialize plugin system
 call plug#end()
@@ -232,3 +234,12 @@ let g:fzf_colors =
 """ vim-session
 " Disable all session locking - I know what I'm doing :-).
 let g:session_lock_enabled = 0
+
+" markdown-preview
+let g:mkdp_open_to_the_world = 1
+let g:mkdp_open_ip = '172.16.60.140' " change to you vps or vm ip
+let g:mkdp_port = 8080
+function! g:EchoUrl(url)
+    :echo a:url
+endfunction
+let g:mkdp_browserfunc = 'g:EchoUrl'
