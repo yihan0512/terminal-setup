@@ -7,23 +7,21 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'mhinz/vim-startify'
 
+" ranger.vim
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 " nerdtree
-Plug 'preservim/nerdtree'
-
-
+" Plug 'preservim/nerdtree'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'ryanoasis/vim-devicons'
 
 " vim-session
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-session'
 
-
-" nerdtree highlighting
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-
 " ALE
 Plug 'dense-analysis/ale'
-
 
 " numirias/semshi
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
@@ -39,11 +37,16 @@ Plug 'junegunn/fzf.vim'
 " tmux vim navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" coco.nvim
+" coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " markdown-preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" indentLine
+Plug 'Yggdroot/indentLine'
+
+
 
 
 " Initialize plugin system
@@ -52,9 +55,6 @@ call plug#end()
     
 " jedi-vim settings
 let g:jedi#completions_command = "<C-N>"
-
-
-
 
 " color
 colorscheme delek
@@ -164,31 +164,37 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " mouse mode on
 set mouse=a
+" """ nerdtree configuration
+
+" " Start NERDTree when Vim starts with a directory argument.
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+"      \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+" " Close the tab if NERDTree is the only window remaining in it.
+" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" " Open the existing NERDTree on each new tab.
+" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror| endif
 
 
-""" nerdtree configuration
+" " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" " Open the existing NERDTree on each new tab.
+" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror| endif
-
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" " Exit Vim if NERDTree is the only window remaining in the only tab.
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" " startify
+" " workaround of nerdtree startup issue
+" let g:startify_session_before_save = [
+"             \ 'silent! NERDTreeClose'
+"             \ ]
+" autocmd SessionLoadpost * NERDTree
+" " let startify read nerdtree bookmarks
+" let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
 
 
@@ -264,12 +270,16 @@ let g:mkdp_browserfunc = 'g:EchoUrl'
 """ vim-devicons
 " set guifont=FiraCode\ Nerd\ Font:h11
 
-" startify
-" workaround of nerdtree startup issue
-let g:startify_session_before_save = [
-            \ 'silent! NERDTreeClose'
-            \ ]
-autocmd SessionLoadpost * NERDTree
-" let startify read nerdtree bookmarks
-let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+""" coc-python
+" use <cr> to confirm an completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+""" supertab
+" tab completion in top down order
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+""" indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
