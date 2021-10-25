@@ -46,6 +46,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " indentLine
 Plug 'Yggdroot/indentLine'
 
+" comment
+Plug 'tpope/vim-commentary'
 
 
 

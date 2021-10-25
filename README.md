@@ -36,5 +36,9 @@
 - ripgrep/silver searcher
 - 
 
+# FAQs
+Q: getting some errors related to semshi
+A: `UpdateRemotePlugins` or `pip install --upgrade neovim` 
+
 # To do
 - split configuration into multiple files
