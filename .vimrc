@@ -49,6 +49,9 @@ Plug 'Yggdroot/indentLine'
 " comment
 Plug 'tpope/vim-commentary'
 
+" supertab
+Plug 'ervandew/supertab'
+
 
 
 " Initialize plugin system
