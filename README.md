@@ -25,13 +25,14 @@
 - xolox/vim-session
 - neoclide/coco.nvim (requires nodejs ?= 12.12, recommand control node version
   with nvm: `omf install nvm`)
-- coc-python (`CocInstall coc-python`)
+- coc-pyright (`CocInstall coc-pyright`)
 - dense-analysis/ale 
 - christoomey/vim-tmux-navigator (also requires tmux side setup)
 - iamcco/markdown-preview.nvim
 - mhinz/vim-startify
 - tiagofumo/vim-nerdtree-syntax-highlight
 - ryanoasis/vim-devicons (need nerd font to work)
+- ervandew/supertab
 ### others
 - ripgrep/silver searcher
 - 
