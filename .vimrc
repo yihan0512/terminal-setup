@@ -52,6 +52,8 @@ Plug 'tpope/vim-commentary'
 " supertab
 Plug 'ervandew/supertab'
 
+" copilot
+Plug 'github/copilot.vim'
 
 
 " Initialize plugin system
