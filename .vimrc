@@ -55,6 +55,20 @@ Plug 'ervandew/supertab'
 " copilot
 Plug 'github/copilot.vim'
 
+" tagbar
+Plug 'preservim/tagbar'
+
+" float-preview
+Plug 'ncm2/float-preview'
+
+" vim-floaterm
+Plug 'voldikss/vim-floaterm'
+
+" Nvim-Buffer-Buffer
+Plug 'Yohannfra/Nvim-Switch-Buffer'
+
+" vim-scripts/cscope.vim
+Plug 'vim-scripts/cscope.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -144,9 +158,13 @@ set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+inoremap <F1> <ESC>:TagbarOpenAutoClose<CR>
+nnoremap <F1> :TagbarOpenAutoClose<CR>
+vnoremap <F1> :TagbarOpenAutoClose<CR>
+
+inoremap <F2> <ESC>:TagbarToggle<CR>
+nnoremap <F2> :TagbarToggle<CR>
+vnoremap <F2> :TagbarToggle<CR>
 
 " Textmate holdouts
 
@@ -171,9 +189,20 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " mouse mode on
 set mouse=a
-" """ nerdtree configuration
 
-" " Start NERDTree when Vim starts with a directory argument.
+" mapping save
+nnoremap <leader>w <Esc>:w<cr><Space>
+inoremap <leader>w <Esc>:w<cr><Space>
+
+
+
+
+
+
+
+
+""" nerdtree configuration
+" Start NERDTree when Vim starts with a directory argument.
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
 "      \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
@@ -290,3 +319,17 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 """ indentLine
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+""" tagbar
+let g:tagbar_position = 'rightbelow vertical'
+
+""" vim-floaterm
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+
+""" Nvim-Switch-Buffer
+" Feel free to map the shortcut you want
+nnoremap S :SwitchBuffer <cr>
+set switchbuf=usetab
+let g:switch_buffer_hide_numbers = 1
