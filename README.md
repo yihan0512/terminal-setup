@@ -63,13 +63,13 @@
 - use `tab` to manage workspace
     - navigating between tabs `gt/gT`
 - use `buffer` to manage opened files
-    - use a buffer viz plugin 
+    - use `Nvim-switch-Buffer` to visualize opened buffers and switch
 - in a `tab`
     - use `split` to create different windows
     - use `Ranger` in each window to explore and open files
     - use `vim-floaterm` to open a floating terminal window for executing
       programs
-        - `sp/vs terminal` to open the terminal in a split window
+        - `sp/vs | terminal` to open the terminal in a split window
     - switch different buffers using buffer switcher ([github](https://github.com/Yohannfra/Nvim-Switch-Buffer))
     - `<leader>w` to write a file
 - working with code
