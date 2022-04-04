@@ -45,6 +45,7 @@
 - ervandew/supertab
 - github/copilot.vim
     - requires neovim >= 0.6
+    - first time use do `Copilot setup` 
 - preservim/tagbar
     - work with `ctags`
 - ncm2/float-preview
